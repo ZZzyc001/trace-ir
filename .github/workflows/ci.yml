@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Enforce zero-leakage dependency boundary (L1/L2)
+        run: |
+          if grep -Eq 'lens-claude|lens-astra|serde_json' crates/ir-l1-hir/Cargo.toml crates/ir-l2-mir/Cargo.toml; then
+            echo "ERROR: Vendor or untyped JSON dependency leaked into L1/L2 core IR!"
+            exit 1
+          fi
+          echo "Zero-leakage dependency boundary verified."
+
+      - name: Run workspace unit & proptest suite
+        run: cargo test --workspace --verbose

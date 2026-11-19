@@ -1,0 +1,10 @@
+[package]
+name = "ir-l1-hir"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+# Hard zero-leakage invariant: no vendor lenses and no serde_json::Value escape hatches.
+[dependencies]
+cas-store = { path = "../cas-store" }
+ir-l0-cst = { path = "../ir-l0-cst" }

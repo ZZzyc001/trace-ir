@@ -1,0 +1,10 @@
+[package]
+name = "lens-astra"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+cas-store = { path = "../cas-store" }
+ir-l0-cst = { path = "../ir-l0-cst" }
+ir-l1-hir = { path = "../ir-l1-hir" }

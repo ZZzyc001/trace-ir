@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/cas-store",
+    "crates/ir-l0-cst",
+    "crates/ir-l1-hir",
+    "crates/ir-l2-mir",
+    "crates/lens-claude",
+    "crates/lens-astra",
+    "crates/verifier",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/ZZzyc001/trace-ir"
+description = "A 3-layer Session Compiler IR (L0 CST -> L1 HIR -> L2 MIR) for AI Agents in Rust"

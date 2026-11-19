@@ -1,0 +1,8 @@
+[package]
+name = "ir-l0-cst"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+cas-store = { path = "../cas-store" }

@@ -1,0 +1,11 @@
+[package]
+name = "ir-l2-mir"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+# Hard zero-leakage invariant: pure effect-graph IR with zero vendor deps.
+[dependencies]
+cas-store = { path = "../cas-store" }
+ir-l0-cst = { path = "../ir-l0-cst" }
+ir-l1-hir = { path = "../ir-l1-hir" }

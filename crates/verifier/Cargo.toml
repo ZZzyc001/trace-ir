@@ -1,0 +1,16 @@
+[package]
+name = "verifier"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+cas-store = { path = "../cas-store" }
+ir-l0-cst = { path = "../ir-l0-cst" }
+ir-l1-hir = { path = "../ir-l1-hir" }
+ir-l2-mir = { path = "../ir-l2-mir" }
+lens-claude = { path = "../lens-claude" }
+lens-astra = { path = "../lens-astra" }
+
+[dev-dependencies]
+proptest = "1"
