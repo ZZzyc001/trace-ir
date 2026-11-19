@@ -20,7 +20,7 @@ jobs:
 
       - name: Enforce zero-leakage dependency boundary (L1/L2)
         run: |
-          if grep -Eq 'lens-claude|lens-astra|serde_json' crates/ir-l1-hir/Cargo.toml crates/ir-l2-mir/Cargo.toml; then
+          if grep -hv '^[[:space:]]*#' crates/ir-l1-hir/Cargo.toml crates/ir-l2-mir/Cargo.toml | grep -Eq 'lens-claude|lens-astra|serde_json'; then
             echo "ERROR: Vendor or untyped JSON dependency leaked into L1/L2 core IR!"
             exit 1
           fi
